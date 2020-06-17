@@ -65,6 +65,37 @@ finger-cable connection.
 </div>
 <br>
 
+### Actuators
+
+I used a linear motor from [Actuonix](https://www.actuonix.com/), the motor model is: [L12-100-100-12-S](https://www.actuonix.com/L12-S-Micro-Linear-Actuator-with-Limit-Switches-p/l12-s.htm?1=1&CartID=0). This actuator consists of a small  100:1 geared DC motor connected to a four-start lead screw of a 1.25 mm pitch or equivalently a lead of 5 mm.
+
+It's a powerful actuator relative to it's size. However, I had to get rid of rod that extends from it. So I extracted the DC motor inside the actuator, the lead screw, and the bearing. This was definitely not cost effective, but it was the only way to get these components. Below are the motor specification:
+
+| Spec.         | Value   |
+| ------------- | ------- |
+| Max load      | 40 N    |
+| No load speed | 20 mm/s |
+| Stall current | 800 mA  |
+| Stroke length | 100 mm  |
+
+
+
+The lead screw is then connected to the cable locks which are used to tie the cables on:
+
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <img src="/assets/images/projects/hand-assist-8.png" class="img-fluid rounded">
+    </div>
+    <div class="col-sm-4">
+      <img src="/assets/images/projects/hand-assist-9.png" class="img-fluid rounded">
+    </div>    
+  </div>
+</div>
+<br>
+
+In order to get position feedback I mimicked how Actuonix do that which is using a potentiometer. 
 
 ### Inner Components
 
