@@ -1,0 +1,11 @@
+- name: MATLAB/Simulink and Octave
+  percentage: 90
+  color: success
+
+- name: Eagle (PCB design)
+  percentage: 40
+  color: success
+
+- name: LabView
+  percentage: 40
+  color: success

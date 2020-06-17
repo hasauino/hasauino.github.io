@@ -1,0 +1,15 @@
+- name: Git
+  percentage: 90
+  color: danger
+
+- name: Docker
+  percentage: 30
+  color: danger
+
+- name: CI/CD
+  percentage: 10
+  color: danger
+
+- name: Vagrant
+  percentage: 50
+  color: danger

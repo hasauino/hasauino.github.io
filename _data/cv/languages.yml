@@ -1,0 +1,14 @@
+- name: Arabic
+  color: dark
+  percentage: 100
+  level: Native
+
+- name: English
+  color: warning
+  percentage: 90
+  level: Proficient (97 TOEFL IBT, 2017)
+
+- name: German
+  color: danger
+  percentage: 30
+  level: B1

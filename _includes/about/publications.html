@@ -1,0 +1,17 @@
+<div class="col mt-4">
+    <div class="publications-body">
+        <ol>
+            {% for item in site.data.cv.publications %}
+            <li>
+                <div class="timeline-item">
+                    <div class="content">
+                        <a class="citation" href="{{ item.link }}" target="_blank">
+                            {{ item.authors }}, <strong>"{{ item.title }},"</strong>, {{item.etc}}.
+                        </a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="col mt-4">
+  <div class="education-body">
+    {% for item in site.data.cv.education %}
+    <div class="education-item">
+      <div class="content">
+        <h2>{{ item.degree }}</h2>
+        <h6 class="date"> <i class="fas fa-building"></i> {{ item.school}} &nbsp;&nbsp;|&nbsp;&nbsp; <i
+            class="fas fa-map-marker-alt"></i> {{ item.address}}</h6>
+        <h6 class="date"> <i class="far fa-calendar-alt"></i> {{ item.from }} — {{ item.to }}</h6>
+        <h6 class="date"> <i class="fas fa-poll"></i> CGPA: {{ item.CGPA }}</h6>
+
+        <div class="container">
+          <div class="row">
+
+            {% for point in item.points %}
+            <div class="col-xl-12">
+              <h6 class="date"> {{point.name}} </h6>
+              <ul>
+                {% for subpoint in point.subpoints %}
+                <li>{{ subpoint.description }}.</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
+
+
+          </div>
+        </div>
+        {% if item.project %}
+        <h6 class="date"> <i class="far fa-lightbulb"></i> {{ item.project.name }}:</h6>
+        <h6 >{{item.project.title}}</h6>
+        {% endif%}
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

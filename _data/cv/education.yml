@@ -1,0 +1,46 @@
+- degree: M.Sc. in Mechatronics Engineering
+  school: American University of Sharjah
+  address: Sharjah, UAE
+  from: February 2015
+  to: May 2017
+  CGPA: 3.7/4.0 (Excellent)
+  project:
+    name: Thesis topic
+    title: Multi-Robot Map Exploration Based on Multiple Rapidly-exploring Randomized Trees
+  points:
+   - name: Major Subjects
+     subpoints:
+     - description: Advanced Control Systems
+     - description: Adaptive Control Systems
+     - description: Modeling and Simulation of Dynamical Systems
+     - description: Embedded Systems
+     - description: Automated Manufacturing Systems
+
+
+- degree: B.Sc. in Mechanical Engineering
+  school: Jordan University of Science and Technology
+  address: Irbid, Jordan
+  from: September 2009
+  to: June 2014
+  CGPA: 80.8/100.0 (Very Good, twice on semester’s honor list)
+  project:
+    name: Senior design project
+    title: System Modeling of a Variable Pitch Quadrotor
+  points:
+   - name: Major Subjects
+     subpoints:
+     - description: Machine Design
+     - description: Mechanical Vibrations
+     - description: Automatic Control
+     - description: Microcontrollers
+     - description: Robotics
+     - description: Circuit Analysis and Electronics
+     - description: Automation
+
+
+- degree: High School Certificate, Science Stream
+  school: Irbid Secondary School
+  address: Irbid, Jordan
+  from: 2008
+  to: 2009
+  CGPA: 92.6/100.0 (Excellent)

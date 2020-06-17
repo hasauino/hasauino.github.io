@@ -1,0 +1,23 @@
+- name: Python
+  percentage: 90
+  color: danger
+
+- name: Embedded C
+  percentage: 90
+  color: danger
+
+- name: C++
+  percentage: 70
+  color: danger
+
+- name: MATLAB
+  percentage: 90
+  color: danger 
+
+- name: Assembly (Motorola 68HC11 instruction set)
+  percentage: 80
+  color: danger
+
+- name: Javascript
+  percentage: 50
+  color: danger   

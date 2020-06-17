@@ -1,0 +1,11 @@
+- name: Robot Operating System (ROS)
+  percentage: 85
+  color: info
+
+- name: OpenCV
+  percentage: 40
+  color: info
+
+- name: Numpy
+  percentage: 90
+  color: info

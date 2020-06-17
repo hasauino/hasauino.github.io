@@ -1,0 +1,7 @@
+- name: Siemens S7-1200
+  percentage: 65
+  color: info
+
+- name: Allen-Bradly
+  percentage: 30
+  color: info

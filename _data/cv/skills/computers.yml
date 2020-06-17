@@ -1,0 +1,23 @@
+- name: Arduino
+  percentage: 95
+  color: success
+
+- name: PIC Microcontrollers
+  percentage: 80
+  color: success
+
+- name: Motorolar 68HC11 (Assembly)
+  percentage: 80
+  color: success
+
+- name: Raspberry Pi
+  percentage: 80
+  color: success 
+
+- name: National Instruments MyRIO
+  percentage: 60
+  color: success
+
+- name: dSPACE (Data acquisition with MATLAB)
+  percentage: 60
+  color: success

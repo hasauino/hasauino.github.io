@@ -1,0 +1,7 @@
+- name: Django
+  percentage: 80
+  color: warning
+
+- name: Wagtail CMS
+  percentage: 60
+  color: warning

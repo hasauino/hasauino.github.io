@@ -1,0 +1,11 @@
+- name: Serial communication; UART, SPI, I2C
+  percentage: 90
+  color: dark
+
+- name: Interfacing with different types of actuators
+  percentage: 90
+  color: dark
+
+- name: Analog/digital sensors
+  percentage: 90
+  color: dark

@@ -1,0 +1,15 @@
+- name: Autodesk Fusion360
+  percentage: 95
+  color: warning
+
+- name: PTC Creo
+  percentage: 90
+  color: warning
+
+- name: Autodesk AutoCAD 
+  percentage: 80
+  color: warning
+
+- name: Autodesk Inventor
+  percentage: 90
+  color: warning

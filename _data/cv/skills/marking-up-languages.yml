@@ -1,0 +1,15 @@
+- name: Markdown
+  percentage: 95
+  color: dark
+
+- name: CSS
+  percentage: 40
+  color: dark
+
+- name: HTML
+  percentage: 50
+  color: dark
+
+- name: Latex
+  percentage: 65
+  color: dark

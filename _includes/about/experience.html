@@ -1,0 +1,35 @@
+<div class="col mt-4">
+  <div class="timeline-body">
+    {% for item in site.data.cv.experience %}
+    <div class="timeline-item">
+      <div class="content">
+        <h2>{{ item.title }}</h2>
+        <h6 class="date"> <i class="fas fa-building"></i> {{ item.employer}} &nbsp;&nbsp;|&nbsp;&nbsp; <i
+            class="fas fa-map-marker-alt"></i> {{ item.address}}</h6>
+        <h6 class="date"> <i class="far fa-calendar-alt"></i> {{ item.from }} — {{ item.to }}</h6>
+        <p>{{ item.description }}</p>
+
+        <div class="container">
+          <div class="row">
+
+            {% for point in item.points %}
+            <div class="col-xl-12">
+              <h6 class="date"> {{point.name}} </h6>
+              <ul>
+                {% for subpoint in point.subpoints %}
+                <li>{{ subpoint.description }}.</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
+
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

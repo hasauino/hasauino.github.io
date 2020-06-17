@@ -1,0 +1,11 @@
+<div class="col-lg-6">
+  <h2 class="mb-3">{{ include.title }}</h2>
+    {% for language in site.data.cv.languages %}
+      <div class="skill">
+        <p>{{ language.name }}</p>
+        <div class="skill-bar skill-bar-{{ language.color }} skill-{{ language.percentage }} wow animated slideInLeft" data-wow-delay="{{ forloop.index | divided_by: 20.0 }}">
+            <span>{{language.level}}</span>
+        </div>
+      </div>
+    {% endfor %}
+</div>

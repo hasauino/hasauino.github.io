@@ -1,0 +1,80 @@
+### Site Settings ###
+title               : Hassan Umari
+description         : >-
+                      <br>
+                      Hi there! welcome to my blog :wave: <br>
+                      <br>
+                      Here, I share projects I worked on and my own thoughts about: <br>
+                      DIY stuff :hammer:, electronics, 3D printing, 
+                      control theory, robotics :robot:, and programming
+baseurl             : ""
+remote_theme        : hasauino/portfolYOU
+
+### Plugins ###
+plugins:
+  - jemoji
+  - jekyll-redirect-from
+
+
+### Navbar Settings ###
+nav_exclude:
+  - pages/tags.html
+  - pages/404.html
+  - pages/index.md
+  - pages/project.html
+
+
+### Author Info ###
+author:
+  name              : Hassan Umari
+  image             : assets/images/photo.png
+  email             : oh91@windowslive.com
+  facebook          : umari.hassan
+  github            : hasauino
+  linkedin          : hassanomari
+  youtube           : warshat
+
+
+### Posts ###
+permalink: /blog/:title
+
+
+### Collections ###
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
+
+### Disqus ###
+disqus: https-hasauino-github-io
+
+
+### Analytics ###
+analytics:
+  enabled: false
+  google:
+    tracking_id: your-google-tracking-id
+
+
+### Defaults for collections ###
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: true
+
+### Exclude from processing ###
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.log"
+
+github: [metadata]  
