@@ -95,7 +95,6 @@ The lead screw is then connected to the cable locks which are used to tie the ca
 </div>
 <br>
 
-In order to get position feedback I mimicked how Actuonix do that which is using a potentiometer. 
 
 ### Electronics
 
