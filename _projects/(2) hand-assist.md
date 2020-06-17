@@ -2,7 +2,7 @@
 name: Hand Assistive Device
 tools: [3D Printing, Embedded Systems, Arduino, ESP8266, PCB]
 image: /assets/images/projects/hand-assist.jpg
-description: Autonomous map exploration strategy for multiple robots
+description: A wearable device which can be used to actuate hand fingers for patients  who lost hand motor functions
 ---
 
 <br>
