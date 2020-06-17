@@ -67,9 +67,9 @@ finger-cable connection.
 
 ### Actuators
 
-I used a linear motor from [Actuonix](https://www.actuonix.com/), the motor model is: [L12-100-100-12-S](https://www.actuonix.com/L12-S-Micro-Linear-Actuator-with-Limit-Switches-p/l12-s.htm?1=1&CartID=0). This actuator consists of a small  100:1 geared DC motor connected to a four-start lead screw of a 1.25 mm pitch or equivalently a lead of 5 mm.
+I used a linear motor from [Actuonix](https://www.actuonix.com/), motor model is: [L12-100-100-12-S](https://www.actuonix.com/L12-S-Micro-Linear-Actuator-with-Limit-Switches-p/l12-s.htm?1=1&CartID=0). This actuator consists of a small  100:1 geared DC motor connected to a four-start lead screw of a 1.25 mm pitch or equivalently a lead of 5 mm.
 
-It's a powerful actuator relative to it's size. However, I had to get rid of rod that extends from it. So I extracted the DC motor inside the actuator, the lead screw, and the bearing. This was definitely not cost effective, but it was the only way to get these components. Below are the motor specification:
+It's a powerful actuator relative to it's size. However, I had to get rid of the rod that extends from it. So I extracted the DC motor inside the actuator, the lead screw, and the bearing. This was definitely not cost effective, but it was the only way to get these components. Below are the motor specifications:
 
 | Spec.         | Value   |
 | ------------- | ------- |
@@ -97,9 +97,23 @@ The lead screw is then connected to the cable locks which are used to tie the ca
 
 In order to get position feedback I mimicked how Actuonix do that which is using a potentiometer. 
 
-### Inner Components
+### Electronics
+
+All the electronics are fixed on the PCB board. First, the [L293D](https://www.ti.com/lit/ds/symlink/l293.pdf) motor driver chip was used to drive the DC motors.
+
+Position feedback was needed for measurement purposes, and more importantly to stop the motors when  cable locks reach the boundary of their allowed motion (not necessarily equal to lead screw length, it depends on the length of the cables, but normally allowed motion was from 10 mm - 90 mm).
+
+##### Position feedback:
+Position feedback was obtained using a potentiometer circuit built into the PCB board. This was inspired by how Actuonix motors actually obtain position feedback.
+
+In the picture below, you can see that the cable locks have spring contact on the bottom which are short circuited together. These spring contacts create a connection between a carbon strip and a conductive pad at it's current position. There is a 5V difference across the carbon strip, and the conductive pad is connected to an analog pin, this forms a potentiometer circuit and can effectively be used to obtain position  feedback. 
+
+The carbon strip is printed on the PCB by the manufacturer which was [PCBWay](https://www.pcbway.com/). They make really nice quality boards, and they support printing carbon layers. The resistance of the carbon strip was almost linear (I didn't notice nonlinearity).
+
+One mistake was the resistance value, it was not high enough (I forgot the exact value), so there was some extra power consumption due to the small current (few mAs) flowing in the carbon strip. Also, the durability of the carbon strip can be questioned on the long run!
 
 <br>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-7">

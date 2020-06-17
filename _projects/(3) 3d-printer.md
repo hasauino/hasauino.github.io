@@ -2,7 +2,7 @@
 name: Design and build of a large cartesian 3D printer
 tools: [3D printing, Mechanical Design]
 image: /assets/images/projects/3dprinter.png
-description: A test platform to be used for printing concrete
+description: A test platform to be used for concrete printing
 ---
 
 <br>
