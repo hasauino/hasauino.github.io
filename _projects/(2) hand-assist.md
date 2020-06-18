@@ -26,6 +26,8 @@ description: A wearable device which can be used to actuate hand fingers for pat
 
 In this project, I designed a wearable device which can be used to actuate hand fingers for patients  who lost hand motor functions. The device actuates three fingers: thumb, index, and middle fingers. It uses a cable-driven mechanism to flex the fingers, whereas finger extension is achieved passively using elastic rubber bands.
 
+Check this paper for full details about this project: [handassist.pdf](/assets/papers/handassist.pdf)
+
 ### Design Overview
 
 The design is compact consisting of a single unit weighing around 600 g (including the battery). The device height is around 4 cm measured from the forearm. It consists of a fabric glove, three linear actuators, a controller, a rechargeable battery, elastic rubber bands, tendon cables, and cable tubings (bowden tubes), as shown below:
