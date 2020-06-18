@@ -16,7 +16,7 @@ Rapidly-exploring Random Tree is an algorithm used in path planning, however, in
 - RRT is biased to grow to unexplored space.
 - RRT is probabilistically complete, this will ensure complete map coverage.
 
-Detailed explanation of this work can be found in our [paper](http://ieeexplore.ieee.org/document/8202319/):
+This work was published in IROS 2017, detailed explanation of this work can be found [there](http://ieeexplore.ieee.org/document/8202319/). If you don't have access to IEEE, you can download the [accepted paper](/assets/papers/rrtexploration.pdf) (the version before reviewers comments).
 ```
 @INPROCEEDINGS{rrtexploration,
 author={H. Umari and S. Mukhopadhyay},
