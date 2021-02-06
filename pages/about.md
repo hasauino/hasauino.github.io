@@ -14,7 +14,7 @@ Below diagram summarizes my  background:
 
 <br> 
 
-<img src="/assets/images/summary.png" alt="Skills summary" style="zoom:35%;" />
+<img src="/assets/images/summary.png" alt="Skills summary" style="zoom:40%;" />
 
 <br>
 
