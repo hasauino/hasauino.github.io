@@ -15,9 +15,21 @@ In this post, I will share a project I worked on for the Advanced Control course
 - Wasim Al-masri,
 - and myself.
 
-## Description
+#### **Description**
 
-The aim of the project is to first identify a mechanical-electrical system and design a controller based on the extracted model. The system in hand is a linear voice coil motor. The controller used is a PI controller for the position. Coulomb Friction is estimated using curve fitting against the actual system response. Since Coulomb friction is not constant, the second phase is to estimate it using a state observer. The value of the estimated friction is used to add a compensator to the PI controller.
+The aim of the project is to first identify a mechanical-electrical system and design a controller based on the extracted model. The system in hand is a linear voice coil motor. The controller used is a PI controller for the position. The most important paramter to estimate is friction (other paramters are either given ex: motor force constant, or easy to identify, ex: mass attached to motor). 
+
+Firiction acts in the opposite direction of the motion and has three components:
+
+- Stiction: is the static force, the force which the motor needs to overcome in order to move the mass. We are interested 
+to model the system during motion so we will ignore this value.
+
+- Coulomb friction: A constant force (opposite to motion).
+
+- Viscous friction: firction force propotional to speed (i.e. $$ \propto \dot{x} $$).
+
+
+ Coulomb friction and viscous friction are estimated using curve fitting. By fitting the mathematical model on the actual system response we obtain experimentally. The second phase (part 2 of the post) is to estimate friction components using a state observer. The value of the estimated friction is used to add a friction compensator to the PI position controller.
 
 <img src="/assets/images/blog/friction/linear_motor.jpg" style="zoom: 20%;" />
 
@@ -25,9 +37,9 @@ The aim of the project is to first identify a mechanical-electrical system and d
 
 
 
-## 1- Deriving system’s dynamic equations
+#### **1- Deriving system’s dynamic equations**
 
-### A) Horizontally oriented
+##### A) Horizontally oriented
 
 ![](/assets/images/blog/friction/FBD.png)
 
@@ -39,11 +51,11 @@ $$
 $$
 
 $$
-m \ddot{x}=K_{F} i-F_{c}-B \dot{x}
+m \ddot{x}=K_{F} ~i - F_{c}-B \dot{x}
 $$
 
 
-Where $$i(t)$$ is calculated from the input voltage $$v_a$$ using the model of the electrical part of the motor:
+Where $$K_F$$ is the force constant of the motor, and $$i(t)$$ is calculated from the input voltage $$v_a$$ using the model of the electrical part of the motor:
 
 
 <img src="/assets/images/blog/friction/circuit_diagram.png" style="zoom: 15%;" />
@@ -60,12 +72,12 @@ $$
 \dot{i} = { {v_a - R~i + K_{emf} ~\dot{x} } \over L}
 $$
 
-Where $$K_{emf}$$ is the back EMF constant, $$K_F$$ is the force constant, $$R$$ is the coil resistance and $$L$$ is the coil
+Where $$K_{emf}$$ is the back EMF constant, $$R$$ is the coil resistance and $$L$$ is the coil
 inductance, which are all given in the motor datasheet.
 
 <br>
 
-### B) Vertically oriented (Experiments setup)
+##### B) Vertically oriented (Experiments setup)
 
 <img src="/assets/images/blog/friction/FBD_vertical.png" style="zoom: 25%;" />
 
@@ -80,6 +92,7 @@ $$
 $$
 
 
+#### **2- Getting System Parameters Experimentally**
 
 <br>
 <br>
