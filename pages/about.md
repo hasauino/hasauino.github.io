@@ -6,11 +6,17 @@ weight: 300
 ---
 
 <h2><strong> <i class="far fa-address-card"></i> Summary </strong></h2> 
-Hi I am **{{ site.author.name }}** :wave:,<br>
 
-I'm a mechatronics Engineer from Jordan, currently living in Germany, and work as a Python developer in the area of web applications. My previous experience was in robotics, hardware design, embedded systems, 3D modeling. My education is focused on Control systems design, system modeling and simulation. 
 
-In short: I'm a hardware guy who <i class="fas fa-heart"></i> to  <i class="fas fa-code"></i>
+I'm a mechatronics Engineer from Jordan, currently living in Germany, and work as a Python developer in the area of web applications. My experience is in robotics, hardware design, embedded systems, 3D modeling. My education is focused on Control systems design, system modeling and simulation. 
+
+Below diagram summarizes my  background:
+
+<br> 
+
+<img src="/assets/images/summary.png" alt="Skills summary" style="zoom:35%;" />
+
+<br>
 
 <h2><strong> <i class="fas fa-briefcase"></i> Experience</strong>
 <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#experience-section" aria-expanded="false" aria-controls="experience-section">
