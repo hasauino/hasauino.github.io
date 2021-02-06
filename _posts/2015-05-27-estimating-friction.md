@@ -1,5 +1,5 @@
 ---
- title: Estimating Friction Using a State Observer
+ title: Estimating Friction Using a State Observer (part 1)
  tags: [Control Theory, State Observer, Compensator]
  style: border
  color: warning
@@ -7,7 +7,6 @@
 ---
 
 <!-- Mathjax Support --> <script type="text/javascript" async  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
-
 <br>
 
 In this post, I will share a project I worked on for the Advanced Control course during my master's at [AUS](https://www.aus.edu/).  Group members: 
@@ -52,6 +51,35 @@ Where $$i(t)$$ is calculated from the input voltage $$v_a$$ using the model of t
 $$
 v_a = R~i + L ~{di \over dt} + E_a
 $$
+
+$$
+\dot{i} = {v_a - R~i + E_a \over L}
+$$
+
+$$
+\dot{i} = { {v_a - R~i + K_{emf} ~\dot{x} } \over L}
+$$
+
+Where $$K_{emf}$$ is the back EMF constant, $$K_F$$ is the force constant, $$R$$ is the coil resistance and $$L$$ is the coil
+inductance, which are all given in the motor datasheet.
+
+<br>
+
+### B) Vertically oriented (Experiments setup)
+
+<img src="/assets/images/blog/friction/FBD_vertical.png" style="zoom: 25%;" />
+
+
+$$
+\sum F_x = m ~a_x
+$$
+
+
+$$
+ m ~\ddot{x} = mg - F_c - B ~\dot{x}
+$$
+
+
 
 <br>
 <br>
