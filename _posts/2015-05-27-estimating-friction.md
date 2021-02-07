@@ -157,6 +157,15 @@ v(t) = -\bigg({mg - F_c \over B}\bigg) ~e^{-{B \over m} ~t} + {mg - F_c \over B}
 $$
 
 
+By integrating, and applying the initial condition $$x(0) = 0$$, we get:
+
+$$
+x(t) = \bigg({m^2g - m ~ F_c \over B^2}\bigg) \bigg( e^{-{B \over m} ~t} ~+ ~{B \over m} ~t  ~- ~1 \bigg)
+$$
+
+$$
+x(t) = c_1 \bigg( e^{-c_2 ~t} ~+ ~{1 \over c_2} ~t  ~- ~1 \bigg)
+$$
 
 <br>
 <br>
