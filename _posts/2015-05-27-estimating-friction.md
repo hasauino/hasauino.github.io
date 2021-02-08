@@ -1,5 +1,5 @@
 ---
- title: System Identification and Position Control of Linear Motor (part 1)
+ title: System Identification and Position Control of a Linear Motor (part 1)
  tags: [Control Theory]
  style: border
  color: warning
