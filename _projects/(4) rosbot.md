@@ -125,7 +125,9 @@ void serialEvent() {
 <br>
 
 ## CAD Model
+Drag model with your mouse, left-click to pan, and scroll wheel to zoom.
+<br>
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe src="https://myhub.autodesk360.com/ue28a719c/shares/public/SH919a0QTf3c32634dcf7cd37da98f6c88de?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0">
-</div>
+{% include elements/three_viewer.html model="/assets/models/rosbot.glb"%}
+
+<br>
