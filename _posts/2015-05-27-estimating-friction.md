@@ -239,12 +239,14 @@ $$
 - **Finding mass**
 
 When the setup is vertically oriented, and during equilibrium with no
-motion at all, only three forces are acting, the weight (unknown), motor
+motion at all, only three forces are acting: the weight (unknown), motor
 force, and stiction (known from previous step).
 
 <img src="/assets/images/blog/friction/stictionVFBD.png" style="zoom: 20%;" />
 
 Mass was found to be:
+
+
 $$
 m = 797.9 ≈ 800 ~grams
 $$
@@ -256,7 +258,7 @@ $$
 <br>
 
 
-Using the curve Matlab fitting tool and applying the lower and upper limits (discussed previously), the following
+Using Matlab curve fitting toolbox and applying the lower and upper limits (discussed previously), the following
 results were obtained. Note that, the range that bounds the viscous friction $$B~\dot{x}$$ is also known since it
 can’t be larger than the weight and it should be positive.
 
