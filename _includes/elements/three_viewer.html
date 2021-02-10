@@ -1,4 +1,4 @@
-<div id="viewer_container">
+<div id="viewer_container" style="width: 100%; height: {{include.height}}px;">
     <section id="loading-screen">
 
         <div id="loader"></div>
@@ -23,7 +23,7 @@
             renderer.outputEncoding = THREE.sRGBEncoding;
             document.getElementById('viewer_container').appendChild(renderer.domElement);
 
-            camera = new THREE.PerspectiveCamera(65, width / height, 0.5, 500);
+            camera = new THREE.PerspectiveCamera(65, width / height, 0.05, 500);
             camera.position.set(2.5, 2.5, 2.5);
             camera.lookAt(0, 0, 0);
             scene = new THREE.Scene();

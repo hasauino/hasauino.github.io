@@ -32,7 +32,9 @@ In this project, I worked on designing a small-scale concrete 3D printer. This p
 <br>
 
 ## CAD Model
+Drag model with your mouse, left-click to pan, and scroll wheel to zoom.
+<br>
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe src="https://myhub.autodesk360.com/ue28a719c/shares/public/SHabee1QT1a327cf2b7a6b639873cd97a04b?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0">  
-</div>
+{% include elements/three_viewer.html model="/assets/models/printer.glb" height="700" %}
+
+<br>

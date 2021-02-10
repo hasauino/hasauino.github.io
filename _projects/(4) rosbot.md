@@ -128,6 +128,6 @@ void serialEvent() {
 Drag model with your mouse, left-click to pan, and scroll wheel to zoom.
 <br>
 
-{% include elements/three_viewer.html model="/assets/models/rosbot.glb"%}
+{% include elements/three_viewer.html model="/assets/models/rosbot.glb" height="500"%}
 
 <br>
