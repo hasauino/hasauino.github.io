@@ -1,6 +1,6 @@
 ---
 name: Hand Assistive Device (older prototype)
-tools: [3D Printing, Embedded Systems, Arduino, ESP8266, PCB]
+tools: [3D Printing, Embedded Systems, Arduino, PCB]
 image: /assets/images/projects/older_hand_assist/overview.jpg
 description: First prototpye I made for the hand assistive device
 ---
