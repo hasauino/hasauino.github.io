@@ -1,6 +1,6 @@
 ---
-name: muasalat application
-tools: [Python, Django, Wagtail, Web development]
+name: muasalat application (WIP)
+tools: [Python, Django, Django REST, Web API, Web development]
 image: /assets/images/projects/muasalat/logo.png
 description: A mobile/web application for coordinating public transportation in Jordan.
 ---
