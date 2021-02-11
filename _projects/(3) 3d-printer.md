@@ -35,6 +35,6 @@ In this project, I worked on designing a small-scale concrete 3D printer. This p
 Drag model with your mouse, left-click to pan, and scroll wheel to zoom.
 <br>
 
-{% include elements/three_viewer.html model="/assets/models/printer.glb" height="700" %}
+{% include elements/three_viewer.html model="/assets/models/printer.glb" height="700" camera_distance="2.5" fov="65"%}
 
 <br>

@@ -69,7 +69,9 @@ The design is compact consisting of a single unit weighing around 600 g (includi
 <br>
 
 ## CAD Model
+Drag model with your mouse, left-click to pan, and scroll wheel to zoom.
+<br>
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe src="https://myhub.autodesk360.com/ue28a719c/shares/public/SHabee1QT1a327cf2b7a670112eb3c7b5443?mode=embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"  frameborder="0">
-</div>
+{% include elements/three_viewer.html model="/assets/models/handassist.glb" height="500" camera_distance="3" fov="50"%}
+
+<br>

@@ -23,8 +23,9 @@
             renderer.outputEncoding = THREE.sRGBEncoding;
             document.getElementById('viewer_container').appendChild(renderer.domElement);
 
-            camera = new THREE.PerspectiveCamera(65, width / height, 0.05, 500);
-            camera.position.set(2.5, 2.5, 2.5);
+            camera = new THREE.PerspectiveCamera({{include.fov}}, width / height, 0.05, 500);
+            const camera_distance = {{include.camera_distance}}
+            camera.position.set(camera_distance, camera_distance, camera_distance);
             camera.lookAt(0, 0, 0);
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0xffffff);
