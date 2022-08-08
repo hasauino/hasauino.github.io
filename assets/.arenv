@@ -1,0 +1,16 @@
+#!/bin/bash
+
+arenv() {
+    eval $(arpm_env -n $1)
+}
+
+_get_list_of_packages() {
+    conan_tree=$(conan search "*")
+    all_pkgs=""
+    for d in $conan_tree; do
+        all_pkgs="$all_pkgs$d "
+    done
+    COMPREPLY=($(compgen -W "$all_pkgs" "${COMP_WORDS[1]}"))
+}
+
+complete -F _get_list_of_packages arenv
