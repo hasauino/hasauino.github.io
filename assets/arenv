@@ -1,16 +1,34 @@
 #!/bin/bash
 
-arenv() {
-    eval $(arpm_env -n $1)
+_update_pkgs_index(){
+    DIR=/home/${USER}/.arenv
+    mkdir -p $DIR
+    rm -f $DIR/index
+    conan search "*" -r all | sed -e '/Remote.*\:/d' -e '1d' -e '2d' >> $DIR/index
 }
 
-_get_list_of_packages() {
-    conan_tree=$(conan search "*")
-    all_pkgs=""
-    for d in $conan_tree; do
-        all_pkgs="$all_pkgs$d "
-    done
+arenv() {
+    if [[ "$1" == "update" ]]
+    then
+        echo "Updating packages index.."
+        _update_pkgs_index
+        echo "Done.."
+    else
+        eval $(arpm_env -n $1)
+    fi
+}
+
+_get_list_of_pckgs() {
+    DIR=/home/${USER}/.arenv
+    if [ -f "$DIR/index" ]; then
+        remote_pkgs=$(cat $DIR/index)
+    else
+        remote_pkgs=""
+    fi
+    local_pckgs=$(conan search "*" | sed -e '1d' -e '2d')
+    all_pkgs="$local_pckgs $remote_pkgs update"
     COMPREPLY=($(compgen -W "$all_pkgs" "${COMP_WORDS[1]}"))
 }
 
-complete -F _get_list_of_packages arenv
+
+complete -F _get_list_of_pckgs arenv
