@@ -1,0 +1,105 @@
+### Site Settings ###
+title               : Hassan Umari
+description         : >-
+                      <br>
+                      Hi there! welcome to my blog :wave: <br>
+                      <br>
+                      Here, I share projects I worked on and my own thoughts about: <br>
+                      DIY stuff :hammer:, electronics, 3D printing, 
+                      control theory, robotics :robot:, and programming
+baseurl             : ""
+repository          : hasauino/hasauino.github.io
+remote_theme        : hasauino/portfolYOU
+open_new_tab        : true                             # Opens external URLs in new tab (works for posts, projects and navbar only)
+
+
+### Plugins ###
+plugins:
+  - jemoji
+
+
+### Navbar Settings ###
+nav_exclude:                                            # The following paths are excluded from navbar
+  - pages/tags.html
+  - pages/404.html
+  - pages/index.md
+
+
+### Author Info ###
+author:
+  name              : Hassan Umari
+  image             : assets/images/photo.png
+  github            : hasauino
+  linkedin          : hassanomari
+  youtube           : warshat
+# behance           : your_username
+# dribbble          : your_username
+# gitlab            : your_username
+# instagram         : your_username
+# kaggle            : your_username
+# medium            : your_username
+# soundcloud        : your_username
+# spotify           : your_username
+# stackoverflow     : your_user_id
+# tumblr            : your_username.tumblr.com
+# twitch            : your_username
+# twitter           : your_username
+# vimeo             : your_username
+# youtube           : your_channel_name
+# keybase           : your_username
+
+
+### Posts ###
+permalink: /blog/:title
+
+
+### Collections ###
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
+
+### Disqus ###
+disqus:
+  shortname: https-hasauino-github-io                     # Your website Shortname on disqus
+
+
+### Analytics ###
+analytics:
+  enabled: true                                        # Set true to enable analytics
+  google:
+    tracking_id: GTM-T5BN2TW
+
+
+### Buy me a coffee ###
+# See https://www.buymeacoffee.com/
+buymeacoffee:
+  enabled: false
+  username: your_username
+  color: "#007bff"
+  message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
+  description: "Support me on Buy me a coffee!"
+
+
+### Defaults for collections ###
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+      comments: true
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: true                                   # Set to true to enable disqus comments
+
+
+### Exclude from processing ###
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - LICENSE
+  - "*.log"
