@@ -11,7 +11,7 @@ serve:
 .PHONY: build
 build:
 	sudo docker run --rm \
-  	--volume="$(PWD):/srv/jekyll:Z" \
+  	--volume="$(PWD):/srv/jekyll" \
   	-it jekyll/jekyll:$(JEKYLL_VERSION) \
   	jekyll build
 

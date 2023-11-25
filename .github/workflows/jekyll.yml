@@ -29,13 +29,17 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: jekyll/jekyll:3.8
+    runs-on: ubuntu-latest
+    container:
+      image: jekyll/jekyll:3.8
+      options: --user root
+      volumes:
+        - ./:/srv/jekyll
     steps:
-      - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
-        run: jekyll build
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - run: jekyll build
       - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-artifact@v3
         with:
           name: github-pages
