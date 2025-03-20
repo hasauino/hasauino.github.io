@@ -8,6 +8,7 @@ serve:
 	--volume="$(PWD):/srv/jekyll:Z" \
 	-it jekyll/jekyll:$(JEKYLL_VERSION) \
 	jekyll serve --livereload --livereload_port 4001
+
 .PHONY: build
 build:
 	sudo docker run --rm \
