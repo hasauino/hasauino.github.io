@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: CV
+permalink: /cv/
 weight: 300
 ---
 
@@ -14,7 +14,7 @@ My academic background includes a master’s in Mechatronics Engineering with a 
 
 
 <div class="container" style="width: 100%; text-align: center; margin: 3em 0;">
-      <button onclick=" window.open('../cv.pdf','_blank')" type="button" style="margin: 1em;" class="btn btn-outline-danger">CV</button>
+      <button onclick=" window.open('../cv.pdf','_blank')" type="button" style="margin: 1em;" class="btn btn-outline-danger">Download CV (PDF)</button>
 </div>
 
 
