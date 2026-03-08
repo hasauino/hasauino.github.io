@@ -7,7 +7,7 @@ description: A platform for managing/exploring a family tree
 
 <br>
 
-# Family tree website: **[new.omaritree.com](https://new.omaritree.com/)**
+# Family tree website: **[omaritree.com](https://omaritree.com/)**
 
 <br>
 
@@ -22,7 +22,7 @@ description: A platform for managing/exploring a family tree
 
 A platform for storing, browsing, and updating a family tree, made using Django.
 
-[Live Demo](https://new.omaritree.com/).
+[Live Demo](https://omaritree.com/).
 
 [GitHub repo](https://github.com/hasauino/family-tree)
 
