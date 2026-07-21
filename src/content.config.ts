@@ -18,6 +18,7 @@ const projects = defineCollection({
     // Optional links surfaced in the project header.
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
+    docs: z.string().url().optional(),
     paper: z.string().url().optional(),
     // YouTube video id embedded at the top of the detail page.
     youtube: z.string().optional(),
