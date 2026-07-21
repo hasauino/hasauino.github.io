@@ -1,0 +1,382 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const work = [
+  {
+    title: 'Senior Software Engineer',
+    company: 'Tabit GmbH',
+    companyUrl: 'https://www.tabit.de',
+    extra: 'client: Infineon Technologies',
+    extraUrl: 'https://www.infineon.com',
+    location: 'Munich, Germany',
+    dates: 'Feb 2024 – Present',
+    points: [
+      'Promoted from Software Engineer to Senior Software Engineer (Mar 2026).',
+      'Main contributor to the design and development of a next-generation Python automation framework for Component Verification (CV) testing: a unified, channel-oriented instrument API built on the IVI standard, support for analog and digital-pattern stimuli, and a test bench abstraction with auto-detection of connected lab instruments.',
+      'Built C driver extensions for instruments used in CV tests.',
+      'Created CI pipelines for unit and integration tests, reducing testing time from 1hr to 10min.',
+    ],
+    tech: 'Python, Docker, C, Matlab, Javascript, Git, Gitlab, Jira.',
+  },
+  {
+    title: 'Software Robotics Engineer',
+    company: 'Agile Robots AG',
+    companyUrl: 'https://www.agile-robots.com',
+    location: 'Munich, Germany',
+    dates: 'Apr 2021 – Oct 2022',
+    points: [
+      'Worked on Django-based Python app enabling graphical programming of robot tasks.',
+      'Built Python micro-services for controlling robot workstation via web APIs (GraphQL + REST).',
+      'Created Web-Apps with GUIs using: Vue JavaScript framework, Electron, HTML, CSS.',
+      'Added unit and integration tests.',
+      'Created CI pipelines.',
+    ],
+    tech: 'Python, DDS, Django, Docker, C++, Conan, Javascript, Vue, Grafana, Git, Gitlab, Jira.',
+  },
+  {
+    title: 'Software Developer',
+    company: 'H-BRS University',
+    companyUrl: 'https://www.h-brs.de',
+    location: 'Bonn, Germany',
+    dates: 'Dec 2019 – Apr 2021',
+    points: [
+      'Part-time job.',
+      'Worked on a Django-based information portal platform for internal employees.',
+      'Extended Wagtail CMS with custom features (e.g. full-text search for documents, drawio-based extension).',
+      'Front-end adjustments: style refactoring.',
+    ],
+    tech: 'Python, Django, Javascript, Git, Gitlab, Vagrant, HTML, CSS.',
+  },
+  {
+    title: 'Research Assistant Robotics',
+    company: 'UAEU University',
+    companyUrl: 'https://www.uaeu.ac.ae',
+    location: 'Al-Ain, UAE',
+    dates: 'Apr 2017 – Feb 2019',
+    points: [
+      'Mechanical design, and prototyping using 3D printing.',
+      'Designed electronic circuits and PCBs.',
+      'Embedded programming (Arduino, ESP8266, Raspberry Pi).',
+      'Robotics: navigation, pick and place, use of computer vision tools.',
+      'Documentation (writing reports, BOM, scientific papers).',
+    ],
+    tech: 'Python, C++, ROS, OpenCV, MQTT, TCP/IP, UDP, Git.',
+    skills: 'CAD, 3D modeling (Fusion 360, Inventor, Creo), PCB (Eagle).',
+  },
+];
+
+const skills = [
+  ['Programming Languages', 'Python, C, C++, Matlab, JavaScript, Dart (Flutter)'],
+  [
+    'Robotics',
+    'Path Planning (A*, RRT*, RRT), Trajectory Tracking, Kalman-Filter, Particle Filter, ROS, DDS (RTI-Connext), OpenCV, MQTT, ModBus',
+  ],
+  ['Web Development', 'Django, FastAPI, Flask, Vue, GraphQL, REST'],
+  ['DevOps', 'Conan, GitLab, CI/CD, Docker, Grafana, Vagrant'],
+  [
+    'Mechatronics',
+    'CAD, Fusion 360, AutoCAD, Creo, Eagle, Serial Communication (SPI, UART, I2C), Control Theory (PID, adaptive control, state observer)',
+  ],
+];
+
+const education = [
+  {
+    institution: 'American University of Sharjah',
+    url: 'https://www.aus.edu',
+    location: 'Sharjah, UAE',
+    dates: '2015 – 2017',
+    degree: 'M.Sc. in Mechatronics Engineering',
+    points: [
+      'GPA: 3.7/4.0 (Excellent)',
+      'Thesis: Multi-Robot Map Exploration Based on Multiple Rapidly-exploring Randomized Trees',
+    ],
+  },
+  {
+    institution: 'Jordan University of Science and Technology',
+    url: 'https://www.just.edu.jo',
+    location: 'Irbid, Jordan',
+    dates: '2009 – 2014',
+    degree: 'B.Sc. in Mechanical Engineering',
+    points: [
+      'GPA: 80/100 (Very Good)',
+      'Thesis: System Modeling of a Variable Pitch Quadrotor',
+    ],
+  },
+];
+
+const languages = [
+  ['Arabic', 'Native'],
+  ['English', 'Proficient (97 TOEFL iBT, 2017)'],
+  ['German', 'Intermediate (Goethe B1, 2026)'],
+];
+---
+
+<Layout title="CV — Hassan Umari" description="Curriculum Vitae of Hassan Umari — Software & Mechatronics Engineer.">
+  <div class="cv-top">
+    <div>
+      <h1>Curriculum Vitae</h1>
+    </div>
+    <a class="btn btn--primary" href="/cv.pdf" target="_blank" rel="noopener">
+      Download PDF
+    </a>
+  </div>
+
+  <section>
+    <h2>Summary</h2>
+    <p>
+      I'm a Software and Mechatronics Engineer with a strong foundation in
+      robotics, embedded systems, and backend development. I bring full-stack
+      problem-solving skills, from low-level drivers to full-fledged web
+      interfaces, DevOps, and CI pipelines. My academic background includes a
+      master's in Mechatronics Engineering with a thesis on autonomous robotic
+      exploration, and I've published research in top venues like IROS and
+      Robotics and Autonomous Systems.
+    </p>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+    {
+      work.map((job) => (
+        <div class="entry">
+          <div class="entry-head">
+            <div>
+              <span class="entry-title">{job.title}</span>
+              <span class="entry-org">
+                {' · '}
+                <a href={job.companyUrl} target="_blank" rel="noopener">
+                  {job.company}
+                </a>
+                {job.extra && (
+                  <>
+                    {'  ·  '}
+                    <a href={job.extraUrl} target="_blank" rel="noopener">
+                      {job.extra}
+                    </a>
+                  </>
+                )}
+              </span>
+            </div>
+            <span class="entry-dates">{job.dates}</span>
+          </div>
+          <div class="entry-loc muted">{job.location}</div>
+          <ul>
+            {job.points.map((p) => (
+              <li>{p}</li>
+            ))}
+          </ul>
+          <p class="tech">
+            <strong>Tech Stack:</strong> {job.tech}
+          </p>
+          {job.skills && (
+            <p class="tech">
+              <strong>Skills:</strong> {job.skills}
+            </p>
+          )}
+        </div>
+      ))
+    }
+  </section>
+
+  <section>
+    <h2>Earlier Experience</h2>
+    <ul>
+      <li>
+        <strong>Research and Teaching Assistant</strong>,
+        <a href="https://www.aus.edu" target="_blank" rel="noopener">American University of Sharjah</a>
+        – Sharjah, UAE (2015–2017)
+      </li>
+      <li>
+        <strong>Junior Automation Engineer</strong>, Al-Wefaq Control Systems –
+        Amman, Jordan (2014)
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      {
+        skills.map(([k, v]) => (
+          <div class="skill-row">
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    {
+      education.map((e) => (
+        <div class="entry">
+          <div class="entry-head">
+            <div>
+              <span class="entry-title">{e.degree}</span>
+              <span class="entry-org">
+                {' · '}
+                <a href={e.url} target="_blank" rel="noopener">
+                  {e.institution}
+                </a>
+              </span>
+            </div>
+            <span class="entry-dates">{e.dates}</span>
+          </div>
+          <div class="entry-loc muted">{e.location}</div>
+          <ul>
+            {e.points.map((p) => (
+              <li>{p}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </section>
+
+  <section>
+    <h2>Publications</h2>
+    <ol class="pubs">
+      <li>
+        Hassan Umari and Shayok Mukhopadhyay, <em>Autonomous Robotic Exploration
+        Based on Multiple Rapidly-Exploring Randomized Trees</em>, in Proc. of the
+        IEEE/RSJ International Conference on Intelligent Robots and Systems
+        (IROS), Vancouver, BC, Canada, 2017, pp. 1396–1402.
+        <a href="https://doi.org/10.1109/IROS.2017.8202319" target="_blank" rel="noopener">
+          doi:10.1109/IROS.2017.8202319</a>.
+      </li>
+      <li>
+        Mukhopadhyay, S., Umari, H. &amp; Koirala, K. <em>Multi-robot Map
+        Exploration Based on Multiple Rapidly-Exploring Randomized Trees</em>. SN
+        Computer Science 5, 31 (2024).
+        <a href="https://doi.org/10.1007/s42979-023-02193-2" target="_blank" rel="noopener">
+          doi:10.1007/s42979-023-02193-2</a>.
+      </li>
+      <li>
+        Alnajjar, F., Umari, H., Ahmed, W. K., et al. (2021).
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0921889021000695" target="_blank" rel="noopener">
+          <em>CHAD: Compact Hand-Assistive Device for enhancement of function in
+          hand impairments</em></a>. Robotics and Autonomous Systems, 142, 103784.
+      </li>
+    </ol>
+    <p class="muted">
+      Full publication list:
+      <a href="https://scholar.google.com/citations?user=pp_B6ecAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <dl class="skills">
+      {
+        languages.map(([k, v]) => (
+          <div class="skill-row">
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+</Layout>
+
+<style>
+  .cv-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .cv-top h1 {
+    margin-bottom: 0.25rem;
+  }
+  section {
+    margin-top: 1rem;
+  }
+  section h2 {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.35rem;
+  }
+  .entry {
+    margin: 1.4rem 0;
+  }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .entry-title {
+    font-weight: 650;
+  }
+  .entry-org {
+    color: var(--text-muted);
+  }
+  .entry-dates {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .entry-loc {
+    font-size: 0.88rem;
+    margin-top: 0.1rem;
+  }
+  .entry ul {
+    margin: 0.6rem 0 0.5rem;
+    padding-left: 1.15rem;
+  }
+  .entry li {
+    margin-bottom: 0.3rem;
+  }
+  .tech {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0.3rem 0 0;
+  }
+  .tech strong {
+    color: var(--text);
+  }
+  .skills {
+    margin: 0;
+  }
+  .skill-row {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-row:last-child {
+    border-bottom: none;
+  }
+  .skill-row dt {
+    flex: 0 0 11rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+  .skill-row dd {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  .pubs {
+    padding-left: 1.15rem;
+  }
+  .pubs li {
+    margin-bottom: 0.9rem;
+    font-size: 0.94rem;
+  }
+  @media (max-width: 560px) {
+    .skill-row {
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .skill-row dt {
+      flex-basis: auto;
+    }
+  }
+</style>

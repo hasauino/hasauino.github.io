@@ -1,0 +1,35 @@
+---
+title: Autonomous Robot Exploration Using RRT
+description: Autonomous map exploration strategy for multiple robots
+order: 70
+group: Robotics
+tags: [ROS, Robotics, Navigation, SLAM, Exploration, Mapping, C++, Python]
+image: /projects/rrt.png
+github: https://github.com/hasauino/rrt_exploration
+paper: https://doi.org/10.1109/IROS.2017.8202319
+youtube: abGyA3K1lzU
+---
+
+Rapidly-exploring Random Tree is an algorithm used in path planning, however, in my master's thesis, we (my advisor and I) have used it in the context of robot exploration. The RRT is used to search for unknown regions in the occupancy grid. The reason behind using RRT is it's nice properties:
+
+- RRT is biased to grow to unexplored space.
+- RRT is probabilistically complete, this will ensure complete map coverage.
+
+This work was published in IROS 2017, detailed explanation of this work can be found [there](http://ieeexplore.ieee.org/document/8202319/). If you don't have access to IEEE, you can download the [accepted paper](/papers/rrtexploration.pdf) (the version before reviewers comments).
+
+```
+@INPROCEEDINGS{rrtexploration,
+author={H. Umari and S. Mukhopadhyay},
+booktitle={2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+title={Autonomous robotic exploration based on multiple rapidly-exploring randomized trees},
+year={2017},
+volume={},
+number={},
+pages={1396-1402},
+keywords={},
+doi={10.1109/IROS.2017.8202319},
+ISSN={},
+month={Sept},}
+```
+
+This work was also implemented as a ROS package. The package is also documented [on the ROS Wiki](http://wiki.ros.org/rrt_exploration).

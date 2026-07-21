@@ -1,0 +1,240 @@
+---
+interface Props {
+  /**
+   * Images to show. Either plain paths ("/projects/a.jpg") or
+   * objects with an optional caption/alt: { src, alt }.
+   */
+  images: (string | { src: string; alt?: string })[];
+}
+
+const { images } = Astro.props;
+
+const slides = images.map((img) =>
+  typeof img === 'string' ? { src: img, alt: '' } : { src: img.src, alt: img.alt ?? '' }
+);
+---
+
+<div class="carousel" data-carousel>
+  <div class="carousel__stage">
+    {
+      slides.length > 1 && (
+        <>
+          <button
+            class="carousel__nav carousel__nav--prev"
+            type="button"
+            aria-label="Previous image"
+          >
+            ‹
+          </button>
+          <button
+            class="carousel__nav carousel__nav--next"
+            type="button"
+            aria-label="Next image"
+          >
+            ›
+          </button>
+          <span class="carousel__counter">
+            <span data-carousel-current>1</span> / {slides.length}
+          </span>
+        </>
+      )
+    }
+    <img
+      class="carousel__main"
+      data-carousel-main
+      src={slides[0].src}
+      alt={slides[0].alt}
+    />
+  </div>
+
+  {
+    slides.length > 1 && (
+      <div class="carousel__thumbs" data-carousel-thumbs>
+        {slides.map((slide, i) => (
+          <button
+            class="carousel__thumb"
+            type="button"
+            data-index={i}
+            aria-current={i === 0 ? 'true' : 'false'}
+            aria-label={`Show image ${i + 1}`}
+          >
+            <img src={slide.src} alt={slide.alt} loading="lazy" />
+          </button>
+        ))}
+      </div>
+    )
+  }
+</div>
+
+<script>
+  function initCarousel(root: HTMLElement) {
+    const main = root.querySelector<HTMLImageElement>('[data-carousel-main]');
+    const thumbs = Array.from(
+      root.querySelectorAll<HTMLButtonElement>('.carousel__thumb')
+    );
+    const counter = root.querySelector<HTMLElement>('[data-carousel-current]');
+    if (!main || thumbs.length === 0) return;
+
+    const slides = thumbs.map((t) => {
+      const img = t.querySelector('img');
+      return { src: img?.getAttribute('src') || '', alt: img?.getAttribute('alt') || '' };
+    });
+
+    let current = 0;
+
+    function show(index: number) {
+      current = (index + slides.length) % slides.length;
+      const slide = slides[current];
+      main!.src = slide.src;
+      main!.alt = slide.alt;
+      thumbs.forEach((t, i) =>
+        t.setAttribute('aria-current', i === current ? 'true' : 'false')
+      );
+      if (counter) counter.textContent = String(current + 1);
+      thumbs[current].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'nearest',
+        block: 'nearest',
+      });
+    }
+
+    thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+
+    root
+      .querySelector('.carousel__nav--prev')
+      ?.addEventListener('click', () => show(current - 1));
+    root
+      .querySelector('.carousel__nav--next')
+      ?.addEventListener('click', () => show(current + 1));
+
+    root.setAttribute('tabindex', '0');
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        show(current - 1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        show(current + 1);
+      }
+    });
+  }
+
+  document
+    .querySelectorAll<HTMLElement>('[data-carousel]')
+    .forEach(initCarousel);
+</script>
+
+<style>
+  .carousel {
+    margin: 1.5rem 0 2rem;
+    outline: none;
+  }
+
+  .carousel__stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    min-height: 220px;
+  }
+
+  .carousel__main {
+    display: block;
+    width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+  }
+
+  .carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    padding-bottom: 3px;
+    color: var(--text);
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .carousel__nav:hover {
+    background: var(--bg);
+    border-color: var(--text-muted);
+  }
+
+  .carousel__nav--prev {
+    left: 0.6rem;
+  }
+
+  .carousel__nav--next {
+    right: 0.6rem;
+  }
+
+  .carousel__counter {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.6rem;
+    z-index: 2;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.1rem 0.55rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .carousel__thumbs {
+    display: flex;
+    gap: 0.55rem;
+    margin-top: 0.7rem;
+    padding-bottom: 0.3rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .carousel__thumb {
+    flex: 0 0 auto;
+    width: 84px;
+    height: 60px;
+    padding: 0;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--surface);
+    opacity: 0.6;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+  }
+
+  .carousel__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel__thumb:hover {
+    opacity: 0.85;
+  }
+
+  .carousel__thumb[aria-current='true'] {
+    opacity: 1;
+    border-color: var(--accent);
+  }
+</style>

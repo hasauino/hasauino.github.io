@@ -1,0 +1,196 @@
+---
+interface Props {
+  /** Path to a .glb/.gltf model under /public, e.g. /models/rosbot.glb */
+  src: string;
+  /** Viewer height in px */
+  height?: number;
+  /** Orbit camera distance (positioned at d,d,d) */
+  cameraDistance?: number;
+  /** Perspective field of view */
+  fov?: number;
+}
+
+const { src, height = 500, cameraDistance = 2.5, fov = 60 } = Astro.props;
+---
+
+<div
+  class="model3d-viewer"
+  data-src={src}
+  data-distance={cameraDistance}
+  data-fov={fov}
+  style={`height:${height}px`}
+>
+  <div class="model3d-loading">
+    <div class="model3d-loader"></div>
+  </div>
+</div>
+<p class="model3d-hint muted">Drag to rotate · right-click to pan · scroll to zoom</p>
+
+<script>
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+  import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
+  function initViewer(container: HTMLElement) {
+    const src = container.dataset.src as string;
+    const fov = parseFloat(container.dataset.fov || '60');
+    const cameraDistance = parseFloat(container.dataset.distance || '2.5');
+
+    let width = container.clientWidth;
+    let height = container.clientHeight;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    container.appendChild(renderer.domElement);
+
+    const camera = new THREE.PerspectiveCamera(fov, width / height, 0.05, 500);
+    camera.position.set(cameraDistance, cameraDistance, cameraDistance);
+    camera.lookAt(0, 0, 0);
+
+    const scene = new THREE.Scene();
+    scene.background = null;
+
+    const loadingManager = new THREE.LoadingManager(() => {
+      const loadingScreen = container.querySelector('.model3d-loading');
+      if (loadingScreen) {
+        loadingScreen.classList.add('fade-out');
+        loadingScreen.addEventListener('transitionend', () =>
+          loadingScreen.remove()
+        );
+      }
+    });
+
+    const loader = new GLTFLoader(loadingManager);
+
+    // lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 0.8);
+    pointLight.castShadow = true;
+    pointLight.shadow.mapSize.width = 2048;
+    pointLight.shadow.mapSize.height = 2048;
+    camera.add(pointLight);
+    scene.add(camera);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLight.position.set(10, 15, 10);
+    dirLight.castShadow = true;
+    dirLight.shadow.mapSize.width = 2048;
+    dirLight.shadow.mapSize.height = 2048;
+    dirLight.shadow.camera.top = 30;
+    dirLight.shadow.camera.bottom = -30;
+    dirLight.shadow.camera.left = -30;
+    dirLight.shadow.camera.right = 30;
+    dirLight.shadow.camera.near = 0.1;
+    dirLight.shadow.camera.far = 100;
+    dirLight.shadow.bias = -0.0001;
+    scene.add(dirLight);
+
+    const backLight = new THREE.DirectionalLight(0x7799ff, 0.3);
+    backLight.position.set(-10, 5, -10);
+    scene.add(backLight);
+
+    // ground grid
+    const gridHelper = new THREE.GridHelper(50, 50, 0x666666, 0xaaaaaa);
+    gridHelper.position.y = -0.01;
+    scene.add(gridHelper);
+
+    // load model
+    loader.load(
+      src,
+      (gltf) => {
+        scene.add(gltf.scene);
+      },
+      undefined,
+      (error) => console.error(error)
+    );
+
+    // controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2.0;
+    // Stop spinning permanently as soon as the user grabs the model.
+    controls.addEventListener('start', () => {
+      controls.autoRotate = false;
+    });
+    controls.update();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    function onResize() {
+      width = container.clientWidth;
+      height = container.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    }
+    window.addEventListener('resize', onResize, false);
+  }
+
+  document
+    .querySelectorAll<HTMLElement>('.model3d-viewer')
+    .forEach(initViewer);
+</script>
+
+<style>
+  .model3d-viewer {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0 0;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: transparent;
+  }
+  .model3d-viewer :global(canvas) {
+    display: block;
+    border-radius: var(--radius);
+  }
+  .model3d-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+  }
+  .model3d-loading.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .model3d-loader {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    animation: model3d-spin 1s linear infinite;
+  }
+  @keyframes model3d-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .model3d-hint {
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0.5rem 0 0;
+  }
+</style>

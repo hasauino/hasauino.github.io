@@ -1,0 +1,59 @@
+---
+title: rosbot
+description: A 3D printed mobile robot with ROS support (WIP)
+order: 30
+group: Robotics
+tags: [ROS, Robotics, Arduino, 3D Printing]
+image: /projects/rosbot/rosbot.jpg
+github: https://github.com/hasauino/rosbot
+model: /models/rosbot.glb
+modelHeight: 500
+modelDistance: 2.5
+modelFov: 65
+wip: true
+---
+
+import Carousel from '../../components/Carousel.astro';
+
+<Carousel
+  images={[
+    { src: '/projects/rosbot/rosbot.jpg', alt: 'rosbot' },
+    { src: '/projects/rosbot/headgear.jpg', alt: 'rosbot head gear' },
+    { src: '/projects/rosbot/battery.jpg', alt: 'rosbot battery' },
+  ]}
+/>
+
+## Description
+
+A simple 3D printed mobile robot, with both ROS and MQTT support. This is a hobby project aimed at price, to make the robot as cheap as possible but also support full navigation (getting map, plan a path, etc), it's still a work in progress, but the firmware is done.
+
+## Firmware
+
+The robot uses an Arduino Nano board and Raspberry Pi 4 (RPi). The Arduino acts as a slave and is responsible for the low-level stuff: PWM for the motors, reading wheel encoders via inturrepts, reading from the IMU (MPU6050), reading battery voltage level, and communicating with the RPi (recieved commands and sends sensor readings). The RPi runs the ROS/MQTT drivers of the robot.
+
+The Arduino sends robot telemetry (wheel speed/position, head angle, IMU data) at a fixed 200 Hz over serial UART. However, speed of wheels is sampled at a lower frequency as wheel encoders have low resolution (880 step per revolution).
+
+The entry point of the firmware is `rosbot/rosbot.ino`, what I'm trying to do is to make the firmware as flexible as possible to support other types of ground robots. The communication protocol between the Arduino and the RPi is also very flexible, one can add support of additional commands (received from RPi), or can send more data. There are also convientent classes to take care of serialization/deserialization.
+
+## MQTT driver + GUI
+
+This is the GUI that communicates with the robot using MQTT over websocket. If the robot is running you will be able to control it 😉
+
+Besides the left/right buttons, it listens to keyboard keys. The control is as follows:
+
+- Left arrow: left
+- Right arrow: right
+- Left arrow and Right arrow: forward
+
+If you are on a mobile device, better open the controller in a separate page:
+
+<a class="btn" href="https://hasauino.github.io/rosbot" target="_blank" rel="noopener noreferrer">open ↗</a>
+
+<iframe
+  src="https://hasauino.github.io/rosbot/"
+  title="rosbot MQTT controller GUI"
+  allowfullscreen
+  scrolling="no"
+  loading="lazy"
+  style="aspect-ratio: 16 / 9; width: 100%; max-width: 100%; border: none; overflow: hidden;"
+></iframe>

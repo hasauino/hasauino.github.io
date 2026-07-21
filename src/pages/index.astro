@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => b.data.order - a.data.order)
+  .slice(0, 3);
+---
+
+<Layout>
+  <section class="intro">
+    <img class="avatar" src="/images/photo.jpg" alt="Hassan Umari" width="120" height="120" />
+    <div class="intro-text">
+      <h1>Hi, I'm Hassan 👋</h1>
+    </div>
+  </section>
+
+  <p>
+    Software &amp; Mechatronics Engineer based in Munich, working at the
+    intersection of robotics, embedded systems, and backend development.
+  </p>
+
+  <p>
+    I bring full-stack problem-solving skills, from low-level drivers to
+    full-fledged web interfaces, DevOps, and CI pipelines. My academic
+    background includes a master's in Mechatronics Engineering with a thesis on
+    autonomous robotic exploration, and I've published research in venues like <strong
+      >IROS</strong
+    > and <strong>Robotics and Autonomous Systems</strong>.
+  </p>
+
+  <SocialLinks />
+
+  <h2>Selected projects</h2>
+  <ul class="home-projects">
+    {
+      projects.map((p) => (
+        <li>
+          <a href={`/projects/${p.id}`}>
+            <span class="hp-title">{p.data.title}</span>
+            <span class="hp-desc">{p.data.description}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="more">
+    <a href="/projects">All projects →</a>
+  </p>
+</Layout>
+
+<style>
+  .intro {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .intro-text h1 {
+    margin-bottom: 0;
+  }
+  .home-projects {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    border-top: 1px solid var(--border);
+  }
+  .home-projects li {
+    border-bottom: 1px solid var(--border);
+  }
+  .home-projects a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.85rem 0.25rem;
+    color: var(--text);
+  }
+  .home-projects a:hover {
+    text-decoration: none;
+  }
+  .home-projects a:hover .hp-title {
+    color: var(--accent);
+  }
+  .hp-title {
+    font-weight: 600;
+  }
+  .hp-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  .more {
+    margin-top: 1.1rem;
+  }
+  @media (max-width: 480px) {
+    .intro {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+</style>

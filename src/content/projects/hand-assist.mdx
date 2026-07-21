@@ -1,0 +1,48 @@
+---
+title: Hand Assistive Device for Stroke Patients
+description: A wearable device which can be used to actuate hand fingers for patients  who lost hand motor functions
+order: 60
+group: Mechatronics
+tags: [3D Printing, Embedded Systems, Arduino, ESP8266, PCB]
+image: /projects/hand-assist.jpg
+paper: https://www.sciencedirect.com/science/article/abs/pii/S0921889021000695
+youtube: P6YCmyWKjm4
+model: /models/handassist.glb
+modelHeight: 500
+modelDistance: 3
+modelFov: 50
+---
+
+import Carousel from '../../components/Carousel.astro';
+
+<Carousel
+  images={[
+    { src: '/projects/hand-assist-1.jpg', alt: 'Hand assistive device' },
+    { src: '/projects/hand-assist-2.jpg', alt: 'Hand assistive device' },
+    { src: '/projects/hand-assist-3.jpg', alt: 'Hand assistive device' },
+    { src: '/projects/hand-assist-4.jpg', alt: 'Hand assistive device' },
+  ]}
+/>
+
+## Description
+
+In this project, I designed a wearable device which can be used to actuate hand fingers for patients  who lost hand motor functions. The device actuates three fingers: thumb, index, and middle fingers. It uses a cable-driven mechanism to flex the fingers, whereas finger extension is achieved passively using elastic rubber bands.
+
+This work was published in the **Robotics and Autonomous Systems** Journal. Paper can be found [here](https://www.sciencedirect.com/science/article/abs/pii/S0921889021000695).
+
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin: 1.5rem 0;">
+  <figure style="flex: 1 1 260px; max-width: 400px; text-align: center; margin: 0;">
+    <figcaption style="margin-bottom: 0.5rem;">Free motion</figcaption>
+    <img src="/projects/free.gif" alt="Free motion" style="width: 100%; border-radius: var(--radius);" />
+  </figure>
+  <figure style="flex: 1 1 260px; max-width: 400px; text-align: center; margin: 0;">
+    <figcaption style="margin-bottom: 0.5rem;">Actuated motion</figcaption>
+    <img src="/projects/actuated.gif" alt="Actuated motion" style="width: 100%; border-radius: var(--radius);" />
+  </figure>
+</div>
+
+### Design Overview
+
+The design is compact consisting of a single unit weighing around 600 g (including the battery). The device height is around 4 cm measured from the forearm. It consists of a fabric glove, three linear actuators, a controller, a rechargeable battery, elastic rubber bands, tendon cables, and cable tubings (bowden tubes), as shown below:
+
+<img src="/projects/hand-assist-5.jpg" alt="Hand assistive device components" style="width: 500px; max-width: 100%; display: block; margin: 1rem auto;" />
