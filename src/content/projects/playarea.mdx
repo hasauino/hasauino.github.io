@@ -1,0 +1,57 @@
+---
+title: Playarea
+description: A minimal planar mobile robot simulator for teaching robot navigation, fast and self-contained with no dependencies.
+order: 75
+group: Robotics
+tags: [Robotics, Simulation, Navigation, C++, Python, TCP/UDP]
+image: /projects/playarea/logo.png
+demo: https://hassan.umari.dev/playarea/
+github: https://github.com/hasauino/playarea
+---
+
+<img src="/projects/playarea/logo.png" alt="Playarea logo" style="width: 200px; max-width: 100%; display: block; margin: 0 auto 2rem;" />
+
+
+Ever wanted to teach robot navigation without having to install many things (ex: ROS, a simulator, etc...)? If this ever happend to you, you might find this project interesting.
+This is a self-contained Python packge that contains a minimal simulator + a python client library.
+The simulator only runs the kinematic model, the robot is a simple two-wheeled mobile robot, it has a camera, a laser scanner, and publishes odomerty.
+So you can teach:
+
+- Mapping (creating an occupancy grid)
+- Path planning
+- Path following
+- etc..
+
+## Quick Start
+
+```bash
+pip install playarea
+```
+
+Then you run the simulator GUI via:
+```bash
+playarea
+```
+
+You can now control the robot from Python as follows:
+
+```python
+from playarea import Robot
+
+robot = Robot()          # connects to localhost:9000
+robot.drive(v=0.2, w=0.5)  # linear m/s, angular rad/s
+print(robot.odom())        # latest pose estimate
+```
+
+
+## Documentation
+
+📚 **[hassan.umari.dev/playarea](https://hassan.umari.dev/playarea/)**
+
+- **[Getting Started](https://hassan.umari.dev/playarea/)** — install, run, and
+  drive the robot from Python.
+- **[Developer Documentation](https://hassan.umari.dev/playarea/developer)** —
+  build from source, the full network interface, wire formats, and coordinate
+  conventions.
+- **[Map Editor](https://hassan.umari.dev/playarea/map-editor/)** — design and
+  export occupancy maps in the browser.
