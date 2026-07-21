@@ -162,13 +162,14 @@ code {
 }
 
 pre {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
   border-radius: var(--radius);
   padding: 1rem 1.1rem;
   overflow-x: auto;
   font-size: 0.85rem;
   line-height: 1.55;
+  color: #1f2328;
 }
 
 pre code {
