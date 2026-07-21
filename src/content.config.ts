@@ -15,6 +15,8 @@ const projects = defineCollection({
     tags: z.array(z.string()).default([]),
     // Card / hero image (path under /public).
     image: z.string().optional(),
+    // Render the card thumbnail on a transparent background (for logos/icons).
+    transparentThumb: z.boolean().default(false),
     // Optional links surfaced in the project header.
     github: z.string().url().optional(),
     demo: z.string().url().optional(),

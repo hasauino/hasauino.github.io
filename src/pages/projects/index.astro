@@ -54,7 +54,7 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags))].sort((a, b) =
             <li class="card" data-tags={p.data.tags.join('|')}>
               <a href={`/projects/${p.id}`} class="card-link">
                 {p.data.image && (
-                  <div class="thumb">
+                  <div class:list={['thumb', { 'thumb-transparent': p.data.transparentThumb }]}>
                     <img src={p.data.image} alt={p.data.title} loading="lazy" />
                   </div>
                 )}
@@ -214,10 +214,17 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags))].sort((a, b) =
     justify-content: center;
     overflow: hidden;
   }
+  .thumb-transparent {
+    background: transparent;
+  }
   .thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .thumb-transparent img {
+    object-fit: contain;
+    padding: 1rem;
   }
   .card-body {
     padding: 1rem 1.1rem 1rem 0;
