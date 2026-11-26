@@ -11,12 +11,24 @@ const work = [
     location: 'Munich, Germany',
     dates: 'Feb 2024 – Oct 2026',
     points: [
-      'Promoted from Software Engineer to Senior Software Engineer (Mar 2026).',
-      'Main contributor to the design and development of a next-generation Python automation framework for Component Verification (CV) testing: a unified, channel-oriented instrument API built on the IVI standard, support for analog and digital-pattern stimuli, and a test bench abstraction with auto-detection of connected lab instruments.',
-      'Built C driver extensions for instruments used in CV tests.',
-      'Created CI pipelines for unit and integration tests, reducing testing time from 1hr to 10min.',
+      'Designed and developed, as main contributor, a next-generation Python test automation framework for component verification: a unified, channel-oriented instrument API built on the IVI standard, analog and digital-pattern stimuli, and a test bench abstraction that auto-detects connected lab instruments.',
+      'Modeled the framework architecture in UML to define component interfaces and interactions.',
+      'Built C driver extensions for the lab instruments used in component verification tests.',
+      'Derived test specifications from product requirements and ran them on lab test benches.',
+      'Collaborated with hardware and validation engineers to troubleshoot test setups and device behavior.',
+      'Created CI pipelines for unit and integration tests, cutting test time from 1 hour to 10 minutes.',
     ],
-    tech: 'Python, Docker, C, Matlab, Javascript, Git, Gitlab, Jira.',
+    tech: 'C, Python, IVI, MATLAB, Docker, Git, GitLab CI, Jira, UML.',
+  },
+  {
+    title: 'Co-founder & Software Engineer (part-time side project)',
+    company: 'Muaslat',
+    companyUrl: 'https://muaslat.com',
+    location: 'Jordan',
+    dates: '2023 – 2024',
+    points: [
+      "Built Flutter apps, a Django/PostGIS REST API and a Vue back office for live tracking of Jordan's public minibuses.",
+    ],
   },
   {
     title: 'Software Robotics Engineer',
@@ -25,61 +37,72 @@ const work = [
     location: 'Munich, Germany',
     dates: 'Apr 2021 – Sep 2022',
     points: [
-      'Worked on Django-based Python app enabling graphical programming of robot tasks.',
-      'Built Python micro-services for controlling robot workstation via web APIs (GraphQL + REST).',
-      'Created Web-Apps with GUIs using: Vue JavaScript framework, Electron, HTML, CSS.',
-      'Added unit and integration tests.',
-      'Created CI pipelines.',
+      'Owned, as maintainer and main contributor, the Django backend of an advanced robot teach pendant that lets non-experts program robot tasks graphically from parameterizable skills.',
+      "Built Python (FastAPI) microservices that expose the robot's DDS nodes to web clients as GraphQL and REST APIs.",
+      'Built CAN and Modbus interfaces to integrate a third-party mobile robot base with the robot workstation.',
+      'Integrated the robot software stack on site at industrial customers in China over 4 months.',
+      'Wrote unit and integration tests and CI pipelines for the software stack.',
     ],
-    tech: 'Python, DDS, Django, Docker, C++, Conan, Javascript, Vue, Grafana, Git, Gitlab, Jira.',
+    tech: 'Python, C++, Django, FastAPI, DDS, GraphQL, REST, CAN, Modbus, Docker, Conan, Vue, GitLab CI.',
   },
   {
-    title: 'Software Developer',
+    title: 'Software Developer (part-time)',
     company: 'H-BRS University',
     companyUrl: 'https://www.h-brs.de',
-    location: 'Bonn, Germany',
+    location: 'Sankt Augustin, Germany',
     dates: 'Dec 2019 – Apr 2021',
-    points: [
-      'Part-time job.',
-      'Worked on a Django-based information portal platform for internal employees.',
-      'Extended Wagtail CMS with custom features (e.g. full-text search for documents, drawio-based extension).',
-      'Front-end adjustments: style refactoring.',
-    ],
-    tech: 'Python, Django, Javascript, Git, Gitlab, Vagrant, HTML, CSS.',
+    points: ['Extended a Django and Wagtail staff portal with custom features such as full-text document search.'],
   },
   {
     title: 'Research Assistant Robotics',
-    company: 'UAEU University',
+    company: 'United Arab Emirates University',
     companyUrl: 'https://www.uaeu.ac.ae',
     location: 'Al-Ain, UAE',
     dates: 'Apr 2017 – Feb 2019',
     points: [
-      'Mechanical design, and prototyping using 3D printing.',
-      'Designed electronic circuits and PCBs.',
-      'Embedded programming (Arduino, ESP8266, Raspberry Pi).',
-      'Robotics: navigation, pick and place, use of computer vision tools.',
-      'Documentation (writing reports, BOM, scientific papers).',
+      'Designed electronic circuits and PCBs and programmed microcontroller firmware (Arduino, ESP8266, Raspberry Pi).',
+      'Designed mechanical parts in CAD and built 3D-printed prototypes of robotic devices.',
+      'Developed robot navigation, pick-and-place and computer vision functions.',
     ],
-    tech: 'Python, C++, ROS, OpenCV, MQTT, TCP/IP, UDP, Git.',
-    skills: 'CAD, 3D modeling (Fusion 360, Inventor, Creo), PCB (Eagle).',
+  },
+  {
+    title: 'Research and Teaching Assistant',
+    company: 'American University of Sharjah',
+    companyUrl: 'https://www.aus.edu',
+    location: 'Sharjah, UAE',
+    dates: '2015 – 2017',
+    points: [
+      'Implemented BLDC, stepper, DC and linear coil motor control: PID control, friction compensation, adaptive control, state observers.',
+      'Modeled electromechanical systems, identified their parameters from measured data, and applied MIMO control.',
+    ],
   },
 ];
 
 const skills = [
-  ['Programming Languages', 'Python, C, C++, Matlab, JavaScript, Dart (Flutter)'],
+  ['Embedded', 'C (bare-metal, Microchip PIC24), Arduino, ESP8266, Raspberry Pi, JTAG/SWD debugging, CAN, Modbus, SPI, UART, I2C, TCP/IP, UDP'],
   [
-    'Robotics',
-    'Path Planning (A*, RRT*, RRT), Trajectory Tracking, Kalman-Filter, Particle Filter, ROS, DDS (RTI-Connext), OpenCV, MQTT, ModBus',
+    'Control and Motors',
+    'PID control, friction compensation, adaptive control, state observers, system identification, MIMO control, Kalman and particle filters; BLDC, stepper, DC and linear coil motors',
   ],
-  ['Web Development', 'Django, FastAPI, Flask, Vue, GraphQL, REST'],
-  ['DevOps', 'Conan, GitLab, CI/CD, Docker, Grafana, Vagrant'],
   [
-    'Mechatronics',
-    'CAD, Fusion 360, AutoCAD, Creo, Eagle, Serial Communication (SPI, UART, I2C), Control Theory (PID, adaptive control, state observer)',
+    'Test and Verification',
+    'Python test automation, IVI instrument control, lab instruments, unit and integration testing (Python, C), CI/CD (GitLab), Docker',
   ],
+  ['Programming Languages', 'Python, C++, C, JavaScript, MATLAB, Dart (Flutter), Rust'],
+  ['Robotics', 'Kinematics, path planning (A*, RRT*), trajectory tracking, ROS, DDS, OpenCV'],
+  ['Software Design and Process', 'UML, software architecture, Git, Jira, Agile Scrum'],
+  ['Hardware and Mechanical', 'CAD (Fusion 360, Inventor, Creo, AutoCAD), 3D-printed prototyping, PCB design (Eagle)'],
 ];
 
 const education = [
+  {
+    institution: 'Hochschule Bonn-Rhein-Sieg (H-BRS)',
+    url: 'https://www.h-brs.de',
+    location: 'Sankt Augustin, Germany',
+    dates: '2019 – 2021',
+    degree: 'Graduate coursework, M.Sc. Autonomous Systems program',
+    points: [],
+  },
   {
     institution: 'American University of Sharjah',
     url: 'https://www.aus.edu',
@@ -107,7 +130,7 @@ const education = [
 const languages = [
   ['Arabic', 'Native'],
   ['English', 'Proficient (97 TOEFL iBT, 2017)'],
-  ['German', 'Intermediate (Goethe B1, 2026)'],
+  ['German', 'Intermediate (Goethe B2, 2026)'],
 ];
 ---
 
@@ -124,17 +147,31 @@ const languages = [
   <section>
     <h2>Summary</h2>
     <p>
-      Software and Mechatronics Engineer working across the full robot stack,
-      with a strong foundation in robotics (kinematics, motion planning,
-      navigation), state estimation, and control theory. On the hardware side:
-      mechanical design (3D CAD, force analysis), electromechanical integration,
-      and communication protocols (ModBus, CAN, SPI, UART, I2C). On the software
-      side: embedded systems and low-level drivers through backend services and
-      web and mobile frontends, plus DevOps and CI pipelines. M.Sc. in
-      Mechatronics Engineering with a thesis on autonomous robotic exploration,
-      and research published in top venues including IROS and Robotics and
-      Autonomous Systems.
+      Software and Mechatronics Engineer with a strong foundation in robotics
+      (kinematics, motion planning, navigation), state estimation, control
+      theory, embedded systems, and backend development. Builds backend services
+      (Python, Django) and robot software (C++, Python, ROS, DDS), down to
+      low-level drivers and hardware interfaces (CAN, Modbus, SPI, UART, I2C).
+      Also comfortable with web frontends and mechanical design (3D CAD, force
+      analysis) when a project needs them. Follows agile development, with unit
+      and integration tests automated in CI. M.Sc. in Mechatronics Engineering
+      with a thesis on autonomous robotic exploration; research published in top
+      venues including IROS and Robotics and Autonomous Systems.
     </p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      {
+        skills.map(([k, v]) => (
+          <div class="skill-row">
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </div>
+        ))
+      }
+    </dl>
   </section>
 
   <section>
@@ -168,12 +205,9 @@ const languages = [
               <li>{p}</li>
             ))}
           </ul>
-          <p class="tech">
-            <strong>Tech Stack:</strong> {job.tech}
-          </p>
-          {job.skills && (
+          {job.tech && (
             <p class="tech">
-              <strong>Skills:</strong> {job.skills}
+              <strong>Tech Stack:</strong> {job.tech}
             </p>
           )}
         </div>
@@ -185,29 +219,10 @@ const languages = [
     <h2>Earlier Experience</h2>
     <ul>
       <li>
-        <strong>Research and Teaching Assistant</strong>,
-        <a href="https://www.aus.edu" target="_blank" rel="noopener">American University of Sharjah</a>
-        – Sharjah, UAE (2015–2017)
-      </li>
-      <li>
         <strong>Junior Automation Engineer</strong>, Al-Wefaq Control Systems –
         Amman, Jordan (2014)
       </li>
     </ul>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <dl class="skills">
-      {
-        skills.map(([k, v]) => (
-          <div class="skill-row">
-            <dt>{k}</dt>
-            <dd>{v}</dd>
-          </div>
-        ))
-      }
-    </dl>
   </section>
 
   <section>
@@ -228,11 +243,13 @@ const languages = [
             <span class="entry-dates">{e.dates}</span>
           </div>
           <div class="entry-loc muted">{e.location}</div>
-          <ul>
-            {e.points.map((p) => (
-              <li>{p}</li>
-            ))}
-          </ul>
+          {e.points.length > 0 && (
+            <ul>
+              {e.points.map((p) => (
+                <li>{p}</li>
+              ))}
+            </ul>
+          )}
         </div>
       ))
     }
